@@ -19,7 +19,7 @@ app.config(
         state('signup', {
             url: '/signup',
             templateUrl: 'view/signup.html',
-            controller: ''
+            controller: 'SignupCtrl'
         })
     }
 );
