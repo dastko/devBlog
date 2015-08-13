@@ -1,16 +1,60 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html lang="bs_BA" ng-app="app">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Blog System Built on nodejs (sails framework) and angularjs">
+<meta name="author" content="Dastko">
+
 
 <head>
     <title>Title of the document</title>
     <!-- inject:css -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="clean-blog.min.css">
+    <link rel="stylesheet" href="signin.css">
     <!-- endinject -->
 
 </head>
 
-<body ng-controller="loginCtrl">
+<body ng-controller="LoginCtrl">
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/posts">devBlog</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ui-sref="login">Login</a>
+                    </li>
+                    <li>
+                        <a ui-sref="signup">Signup</a>
+                    </li>
+                    <li>
+                        <a ui-sref="addpost">Add Post</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-    The content APP of the document......
+    <!-- Main Content -->
+    <div ui-view>
+
+    </div>
+    <hr>
+
     <!-- vendorInject:js -->
     <script src="vendor/angular.js"></script>
     <script src="vendor/satellizer.js"></script>
