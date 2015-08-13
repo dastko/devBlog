@@ -8,12 +8,17 @@ app.config(
         $stateProvider.
         state('login', {
             url: '/login',
-            templateUrl: 'login.html',
+            templateUrl: 'view/login.html',
             controller: 'LoginCtrl'
         }).
         state('posts', {
             url: '/posts',
-            templateUrl: 'posts.html',
+            templateUrl: 'view/posts.html',
+            controller: ''
+        }).
+        state('signup', {
+            url: '/signup',
+            templateUrl: 'view/signup.html',
             controller: ''
         })
     }
