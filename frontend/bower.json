@@ -1,19 +1,23 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
-  "authors": [
+    "name": "frontend",
+    "version": "0.0.0",
+    "authors": [
     "davorst <davor.stankovic@devlogic.eu>"
   ],
-  "license": "MIT",
-  "homepage": "http://netalasaj.com",
-  "ignore": [
+    "license": "MIT",
+    "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
   ],
-  "dependencies": {
-    "angular": "~1.4.3"
-  }
+    "dependencies": {
+        "angular": "~1.4.3",
+        "satellizer": "~0.11.3",
+        "angular-ui-router": "~0.2.15"
+    },
+    "resolutions": {
+        "angular": "1.4.3"
+    }
 }
