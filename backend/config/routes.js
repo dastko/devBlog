@@ -33,8 +33,9 @@ module.exports.routes = {
      ***************************************************************************/
 
 
-    'POST /login': 'UserController.login'
-
+    'POST /login': 'UserController.login',
+    'POST /signup': 'UserController.signup',
+    'POST /addcomment': 'CommentController.postComment'
 
     /***************************************************************************
      *                                                                          *
