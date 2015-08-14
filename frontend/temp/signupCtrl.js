@@ -1,5 +1,4 @@
 angular.module('app').controller('SignupCtrl', ['$scope', '$http', function ($scope, $http) {
-    console.log('Signup Controller initialized...');
 
     $scope.signupForm = {
             loading: false

@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router', 'toastr', 'ngAnimate']);
 
 app.config(
     function ($stateProvider, $urlRouterProvider) {
@@ -14,12 +14,17 @@ app.config(
         state('posts', {
             url: '/posts',
             templateUrl: 'view/posts.html',
-            controller: ''
+            controller: 'PostCtrl'
         }).
         state('signup', {
             url: '/signup',
             templateUrl: 'view/signup.html',
             controller: 'SignupCtrl'
+        }).
+        state('addpost', {
+            url: '/addpost',
+            templateUrl: 'view/addpost.html',
+            controller: 'PostCtrl'
         })
     }
 );
