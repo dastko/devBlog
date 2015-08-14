@@ -28,6 +28,7 @@ angular.module('app').controller('PostCtrl', ['$scope', '$http', 'toastr', funct
         $http.get('api/post').then(function (response) {
             $scope.posts = response.data;
         }),
+
         $scope.showPost = function (post) {
             $scope.showP = true;
             $scope.title = post.title;

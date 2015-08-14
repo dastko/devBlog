@@ -11,51 +11,37 @@
         </div>
     </div>
 </header>
-<div class="col-lg-12">
-    <div class="col-lg-6">
+<div class="col-lg-12 col-lg-offset-3">
+    <div class="col-lg-8">
         <form class="form-horizontal" ng-submit="addPost()">
             <h2>Add Post</h2>
             <br>
             <div class="form-group" ng-init="getUser()">
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <textarea ng-model="title" class="form-control" rows="2" name="title" id="title" placeholder="Add title"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <textarea ng-model="content" class="form-control" rows="3" id="content" name="content" placeholder="Add content"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <textarea ng-model="subtitle" class="form-control" rows="3" id="subtitle" name="subtitle" placeholder="Add subtitle"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-lg-10">
-                    <textarea ng-model="useremail" class="form-control" rows="3" id="useremail" name="useremail" placeholder="User Email" disabled>{{user.email}}</textarea>
+                <div class="col-lg-8">
+                    <textarea ng-model="useremail" class="form-control" rows="3" id="useremail" name="useremail" placeholder="User Email" disabled style="display:none;">{{user.email}}</textarea>
                 </div>
             </div>
-            <div class="col-lg-10 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="col-lg-8">
+                <button type="submit " class="btn btn-primary pull-right">Submit</button>
             </div>
         </form>
+        <br>
+        <br>
+        <br>
     </div>
-    <div class="col-lg-6">
-        <div class="list-group">
-            <div class="list-group-item">
-                <h1>Post List</h1>
-                <div ng-repeat="post in posts">
-                    <div class="row-picture">
-                        <img ng-src="http://lorempixel.com/56/56/people/1" class="circle" alt="icon">
-                    </div>
-                    <div class="row-content">
-                        <h4 class="list-group-item-heading">{{post.title}}</h4>
-                        <h4 class="list-group-item-heading">{{post.id}}</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
