@@ -33,7 +33,8 @@ module.exports.policies = {
   },
 
   UserController: {
-    'create': true
+    'create': true,
+    'getuser' : ['passport']
   }
 
 
