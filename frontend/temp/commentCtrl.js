@@ -7,6 +7,7 @@ angular.module('app').controller('CommentCtrl', ['$scope', '$rootScope', '$http'
                 poster: $rootScope.id
             })
             .then(function onSuccess(response) {
+                console.log(response);
                 window.location = '#/posts';
             })
             .catch(function onError(err) {

@@ -2,11 +2,11 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$http', function ($sco
 
     $scope.loginSubmit = function () {
         $http.post('/api/auth/local', {
-                identifier: $scope.email,
-                password: $scope.password,
-            })
+            identifier: $scope.email,
+            password: $scope.password,
+        })
             .then(function onSuccess() {
-                window.location = '#/addpost';
+                window.location = '#/posts';
             })
             .catch(function onError(err) {
 

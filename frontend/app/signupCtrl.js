@@ -15,7 +15,7 @@ angular.module('app').controller('SignupCtrl', ['$scope', '$http', 'toastr', fun
         })
             .then(function onSuccess(response) {
                 console.log(response);
-                window.location = '#/addpost';
+                window.location = '#/posts';
             })
             .catch(function onError(err) {
                 if (err.status == 409) {

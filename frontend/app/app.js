@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'toastr', 'ngAnimate', 'compareTo']);
+var app = angular.module('app', ['ui.router', 'toastr', 'ngAnimate', 'compareTo', 'ui.bootstrap']);
 
 app.config(
     function ($stateProvider, $urlRouterProvider) {

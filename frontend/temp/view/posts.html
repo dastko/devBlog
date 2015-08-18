@@ -1,4 +1,4 @@
-<header class="intro-header" style="background-image: url({{ picture || '/img/home-bg.jpg' }})">
+  <header class="intro-header" style="background-image: url({{ picture || '/img/home-bg.jpg' }})">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -43,6 +43,7 @@
                 <form role="form" ng-submit="addComment()">
                     <div class="form-group">
                         <textarea ng-model="comment" class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="3">{{id}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary pull-right">Submit</button>
                 </form>
