@@ -1,8 +1,8 @@
 angular.module('app').controller('LoginCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.loginSubmit = function () {
-        $http.post('/api/login', {
-                email: $scope.email,
+        $http.post('/api/auth/local', {
+                identifier: $scope.email,
                 password: $scope.password,
             })
             .then(function onSuccess() {

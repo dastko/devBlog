@@ -51,10 +51,10 @@
                        signup.password.$dirty}">
 
             <label for="password" class="sr-only">Password</label>
-            <input ng-model="signupForm.password" ng-maxlength="20" type="password" id="password" name="password" class="form-control" placeholder="Password" compare-to="signupForm.confirmPassword" required>
+            <input ng-model="signupForm.password" ng-maxlength="20" ng-minlength="8" type="password" id="password" name="password" class="form-control" placeholder="Password" compare-to="signupForm.confirmPassword" required>
             <span class="help-block has-error" ng-if="signup.password.$dirty">
                 <span ng-show="signup.password.$error.required">Password is required.</span>
-            <span ng-show="signup.password.$error.minlength">Password must be at least 6 characters.</span>
+            <span ng-show="signup.password.$error.minlength">Password must be at least 8 characters.</span>
             </span>
         </div>
 

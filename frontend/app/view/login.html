@@ -17,7 +17,7 @@
         <label for="inputEmail" class="sr-only">Email address</label>
         <input ng-model="email" type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input ng-model="password" ng-maxlength="20" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <input ng-model="password" ng-maxlength="20" ng-minlength="8" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

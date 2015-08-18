@@ -7,7 +7,7 @@ angular.module('app').controller('SignupCtrl', ['$scope', '$http', function ($sc
         $scope.submitSignupForm = function () {
             $scope.signupForm.loading = true;
 
-            $http.post('/api/signup', {
+            $http.post('/api/user', {
                     name: $scope.signupForm.name,
                     email: $scope.signupForm.email,
                     password: $scope.signupForm.password
