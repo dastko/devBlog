@@ -1,7 +1,7 @@
-// api/services/protocols/index.js
+// api/controllers/PermissionController.js
 
 var _ = require('lodash');
-var _super = require('sails-auth/api/services/protocols/index');
+var _super = require('sails-permissions/api/controllers/PermissionController');
 
 _.merge(exports, _super);
 _.merge(exports, {

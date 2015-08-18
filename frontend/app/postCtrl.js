@@ -25,8 +25,9 @@ angular.module('app').controller('PostCtrl', ['$scope', '$http', 'toastr', funct
                 });
         },
 
-        $http.get('api/post').then(function (response) {
-            $scope.posts = response.data;
+        $http.get('api/posts').then(function (response) {
+            console.log(response.data.post);
+            $scope.posts = response.data.post;
         }),
 
         $scope.showPost = function (post) {
@@ -43,15 +44,5 @@ angular.module('app').controller('PostCtrl', ['$scope', '$http', 'toastr', funct
         $scope.hidePost = function () {
             $scope.showP = false;
             $scope.picture = 'img/home-bg.jpg';
-        },
-
-        $scope.getUser = function () {
-            $http.get('/api/getuser')
-                .then(function onSuccess(user) {
-                    $scope.useremail = user.data.email;
-                })
-                .catch(function onError(err) {
-                    console.log(err);
-                });
         }
 }])

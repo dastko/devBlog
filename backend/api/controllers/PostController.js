@@ -23,5 +23,17 @@ module.exports = {
                 id: newPost.id
             });
         })
+    },
+
+    retrievePosts: function (req, res) {
+        Post.find().paginate({ page: 1, limit: 10 })
+            .exec(function (err, posts) {
+                if (err) {
+                    return res.negotiate(err);
+                }
+                console.log(posts);
+                return res.json({post : posts })
+            });
+
     }
 };

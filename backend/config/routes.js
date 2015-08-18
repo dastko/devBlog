@@ -33,7 +33,8 @@ module.exports.routes = {
    ***************************************************************************/
 
   'POST /addpost': 'PostController.post',
-  'GET /getuser': 'UserController.getuser'
+  'GET /getuser': 'UserController.getuser',
+  'GET /posts' : 'PostController.retrievePosts'
 
   /***************************************************************************
    *                                                                          *

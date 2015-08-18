@@ -25,18 +25,29 @@ module.exports.policies = {
    * access)                                                                  *
    *                                                                          *
    ***************************************************************************/
-
-  '*': ['basicAuth', 'passport', 'sessionAuth'],
+'*': [
+    'basicAuth',
+    'passport',
+    'sessionAuth',
+    'ModelPolicy',
+    'AuditPolicy',
+    'OwnerPolicy',
+    'PermissionPolicy',
+    'RolePolicy',
+    'CriteriaPolicy'
+  ],
 
   AuthController: {
-    '*': ['passport']
+    '*': [ 'passport' ]
   },
-
+  
   UserController: {
-    'create': true,
-    'getuser' : ['passport']
+    create: true
+  },
+  
+  PostController: {
+    retrievePosts: true,
   }
-
 
   /***************************************************************************
    *                                                                          *
