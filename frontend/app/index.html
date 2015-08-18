@@ -8,62 +8,157 @@
 <meta name="author" content="Dastko">
 
 <head>
-    <title>Title of the document</title>
-    <!-- inject:css -->
-    <!-- endinject -->
+	<title>Title of the document</title>
+	<!-- inject:css -->
+	<!-- endinject -->
 
-    <!-- CUSTOM FONTS -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-    rel='stylesheet' type='text/css'>
+	<!-- CUSTOM FONTS -->
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
 
- <!-- NAVIGATION BAR -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#/posts">devBlog</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a ui-sref="login">Login</a>
-                    </li>
-                    <li>
-                        <a ui-sref="signup">Signup</a>
-                    </li>
-                    <li>
-                        <a ui-sref="addpost">Add Post</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-    <!-- MAIN CONTENT -->
-    <div ui-view>
 
-    </div>
+	<header role="banner">
+		<div id="cd-logo">
+			<a href="#0"><img src="img/cd-logo.svg" alt="Logo"></a>
+		</div>
 
-    <hr>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- vendorInject:js -->
-    <!-- endinject -->
+		<nav class="main-nav">
+			<ul>
+				<!-- inser more links here -->
+				<li><a class="cd-signin" href="#0">Sign in</a></li>
+				<li><a class="cd-signup" href="#0">Sign up</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="cd-user-modal">
+		<!-- this is the entire modal form, including the background -->
+		<div class="cd-user-modal-container">
+			<!-- this is the container wrapper -->
+			<ul class="cd-switcher">
+				<li><a href="#0">Sign in</a></li>
+				<li><a href="#0">New account</a></li>
+			</ul>
+
+			<div id="cd-login">
+				<!-- log in form -->
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signin-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" id="signin-password" type="text" placeholder="Password">
+						<a href="#0" class="hide-password">Hide</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="remember-me" checked>
+						<label for="remember-me">Remember me</label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Login">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div>
+			<!-- cd-login -->
+
+			<div id="cd-signup" ng-controller="SignupCtrl">
+				<!-- sign up form -->
+				<form class="cd-form" ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
+					<p class="fieldset" ng-class="{'has-error':signup.name.$invalid &&
+                       signup.name.$dirty}">
+						<label class="image-replace cd-username" for="signup-username">Username</label>
+						<input class="full-width has-padding has-border" ng-model="signupForm.name" type="text" name="name" id="name" placeholder="Username">
+						<span  ng-if="signup.name.$dirty">
+               			 <span  ng-show="signup.name.$error.required">Name is required.</span>
+						<span  ng-show="signup.name.$error.maxlength">The name cannot be more than 50 characters.</span>
+						</span>
+					</p>
+
+					<p class="fieldset" ng-class="{'has-error':signup.email.$invalid &&
+                       signup.email.$dirty}">
+						<label class="image-replace cd-email" for="inputEmail">E-mail</label>
+						<input class="full-width has-padding has-border" ng-model="signupForm.email" type="email" name="email" id="inputEmail" placeholder="E-mail">
+						<span ng-if="signup.email.$dirty">
+             		   	<span  ng-show="signup.email.$error.required">Email address is required.</span>
+						<span  ng-show="signup.email.$error.email">Not a valid email address.</span>
+						</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" id="signup-password" type="text" placeholder="Password">
+						<a href="#0" class="hide-password">Hide</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<button class="btn btn-sm btn-primary btn-block" type="submit" ng-disabled="signup.$invalid">
+							<span ng-show="!signupForm.loading"> Create Account</span>
+							<span class="overlord-loading-spinner fa fa-spinner" ng-show="signupForm.loading"></span>
+							<span ng-show="signupForm.loading"> Preparing new account</span>
+						</button>
+
+					</p>
+				</form>
+
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div>
+			<!-- cd-signup -->
+
+			<div id="cd-reset-password">
+				<!-- reset password form -->
+				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div>
+			<!-- cd-reset-password -->
+			<a href="#0" class="cd-close-form">Close</a>
+		</div>
+		<!-- cd-user-modal-container -->
+	</div>
+	<!-- cd-user-modal -->
+	<!-- MAIN CONTENT -->
+	<div ui-view>
+
+	</div>
+
+	<hr>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- vendorInject:js -->
+	<!-- endinject -->
 
 
-    <!-- inject:js -->
-    <!-- endinject -->
+	<!-- inject:js -->
+	<!-- endinject -->
 
 </body>
 

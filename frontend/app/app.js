@@ -17,8 +17,7 @@ app.config(
             controller: 'PostCtrl'
         }).
         state('signup', {
-            url: '/signup',
-            templateUrl: 'view/signup.html',
+            url: '/posts',
             controller: 'SignupCtrl'
         }).
         state('addpost', {
