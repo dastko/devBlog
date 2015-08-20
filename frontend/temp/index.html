@@ -57,27 +57,19 @@
 
 			<div id="cd-login">
 				<!-- log in form -->
-				<form class="cd-form">
+				<form class="cd-form" ng-controller="LoginCtrl" ng-submit="loginSubmit()">
 					<p class="fieldset">
-						<label class="image-replace cd-email" for="signin-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
-						<span class="cd-error-message">Error message here!</span>
+						<label class="image-replace cd-email" for="inputEmail">E-mail</label>
+						<input ng-model="email" class="full-width has-padding has-border" type="email" name="email" id="inputEmail" placeholder="E-mail" required>
 					</p>
-
 					<p class="fieldset">
-						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="text" placeholder="Password">
+						<label class="image-replace cd-password" for="inputPassword">Password</label>
+						<input class="full-width has-padding has-border" ng-model="password" ng-maxlength="20" ng-minlength="8" type="text" id="inputPassword" name="password" placeholder="Password" placeholder="Password" required>
 						<a href="#0" class="hide-password">Hide</a>
-						<span class="cd-error-message">Error message here!</span>
 					</p>
-
 					<p class="fieldset">
-						<input type="checkbox" id="remember-me" checked>
-						<label for="remember-me">Remember me</label>
-					</p>
+       				 <button class="btn btn-sm btn-primary btn-block" type="submit">Sign in</button>
 
-					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login">
 					</p>
 				</form>
 
@@ -91,24 +83,22 @@
 				<form class="cd-form" ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
 					<p class="fieldset" ng-class="{'has-error':signup.name.$invalid &&
                        signup.name.$dirty}">
-						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" ng-model="signupForm.name" type="text" name="name" id="name" placeholder="Username">
+						<label class="image-replace cd-username" for="name">Name</label>
+						<input class="full-width has-padding has-border" ng-model="signupForm.name" type="text" name="name" id="name" placeholder="Username" autofocus>
 						<span ng-if="signup.name.$dirty">
-               			 <span  ng-show="signup.name.$error.required">Name is required.</span>
-						<span ng-show="signup.name.$error.maxlength">The name cannot be more than 50 characters.</span>
+               			 <span class="cd-error-message" ng-show="signup.name.$error.required">Name is required.</span>
+						<span class="cd-form-message" ng-show="signup.name.$error.maxlength">The name cannot be more than 50 characters.</span>
 						</span>
 					</p>
-
 					<p class="fieldset" ng-class="{'has-error':signup.email.$invalid &&
                        signup.email.$dirty}">
 						<label class="image-replace cd-email" for="inputEmail">E-mail</label>
 						<input class="full-width has-padding has-border" ng-model="signupForm.email" type="email" name="email" id="inputEmail" placeholder="E-mail">
-						<span class="cd-form-message" ng-if="signup.email.$dirty">
+						<span ng-if="signup.email.$dirty">
              		   	<span class="cd-form-message" ng-show="signup.email.$error.required">Email address is required.</span>
 						<span class="cd-form-message" ng-show="signup.email.$error.email">Not a valid email address.</span>
 						</span>
 					</p>
-
 					<p class="fieldset" ng-class="{'has-error':signup.password.$invalid &&
                        signup.password.$dirty}">
 						<label class="image-replace cd-password" for="password">Password</label>
@@ -120,7 +110,6 @@
 						<span class="cd-form-message" ng-show="signup.password.$error.minlength">Password must be at least 8 characters.</span>
 						</span>
 					</p>
-
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="password">Re-enter your password</label>
 						<input class="full-width has-padding has-border" name="confirmation" ng-model="signupForm.confirmPassword" placeholder="Password">
@@ -129,7 +118,6 @@
                			 <span class="cd-form-message" ng-show="signup.password.$error.compareTo">Password must match.</span>
 						<span class="cd-form-message" ng-show="signup.confirmation.$error.required">Confirmation password is required.</span>
 						</span>
-
 					</p>
 
 					<p class="fieldset">
@@ -185,6 +173,7 @@
 	<script src="vendor/angular-animate.js"></script>
 	<script src="vendor/ui-bootstrap-tpls.js"></script>
 	<script src="vendor/jquery.js"></script>
+	<script src="vendor/angular-resource.js"></script>
 	<script src="vendor/metisMenu.js"></script>
 	<!-- endinject -->
 
@@ -193,10 +182,12 @@
 	<script src="app.js"></script>
 	<script src="commentCtrl.js"></script>
 	<script src="compareTo.directive.js"></script>
+	<script src="jquery.validate.min.js"></script>
 	<script src="loginCtrl.js"></script>
 	<script src="main.js"></script>
 	<script src="modernizr.js"></script>
 	<script src="postCtrl.js"></script>
+	<script src="resourceservice.js"></script>
 	<script src="signupCtrl.js"></script>
 	<!-- endinject -->
 

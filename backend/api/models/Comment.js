@@ -13,10 +13,8 @@ module.exports = {
             model: 'post'
         },
         comment: {
-            type: 'String'
-        },
-        postId: {
-            type: 'String'
+            type: 'String',
+            required: true
         }
     }
 };

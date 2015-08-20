@@ -1,20 +1,11 @@
-angular.module('app').controller('CommentCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
+angular.module('app').controller('CommentCtrl', ['$scope', '$http', '$resource', 'CommentService', function ($scope, $http, $resource, CommentService) {
+    console.log("Comment Ctrl");
 
-    $scope.addComment = function () {
-
-        $http.post('/api/addcomment', {
-                comment: $scope.comment,
-                poster: $rootScope.id
-            })
-            .then(function onSuccess(response) {
-                console.log(response);
-                window.location = '#/posts';
-            })
-            .catch(function onError(err) {
-                if (err.status == 404) {
-                    console.log("sdadasdsaads");
-                }
-                if (err.status == 403) {} else {}
-            });
+    $scope.comments = CommentService.query();
+    $scope.commentData = {};
+    $scope.newComment = function () {
+        var comment = new CommentService($scope.commentData);
+        comment.$save();
+        $scope.comments.push(comment);
     }
-}])
+}]);

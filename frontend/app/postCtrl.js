@@ -29,8 +29,10 @@ angular.module('app').controller('PostCtrl', ['$scope', '$http', 'toastr', funct
             console.log(response.data.post);
             $scope.posts = response.data.post;
         }),
-
-        $scope.showPost = function (post) {
+        
+        $scope.id = {};
+        
+        function showId (post){
             $scope.showP = true;
             $scope.title = post.title;
             $scope.content = post.content;
@@ -39,7 +41,9 @@ angular.module('app').controller('PostCtrl', ['$scope', '$http', 'toastr', funct
             $scope.useremail = post.useremail;
             $scope.createdAt = post.createdAt;
             $scope.id = post.id;
-        },
+        }
+        
+        $scope.showId = showId;
 
         $scope.hidePost = function () {
             $scope.showP = false;
