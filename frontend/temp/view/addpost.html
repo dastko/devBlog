@@ -430,31 +430,31 @@
                 </div>
             </div>
             <!-- /.row -->
-            <div class="row">
+            <div class="row" >
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
                         </div>
-                          <form class="form-group"  ng-submit="addPost()">
-            <div class="form-group" ng-init="getUser()">
+                          <form class="form-group" ng-submit="newPost()">
+            <div class="form-group">
                 <div class="col-lg-12">
-                    <textarea ng-model="title" class="form-control" rows="2" name="title" id="title" placeholder="Add title"></textarea>
+                    <textarea ng-model="postData.title" class="form-control" rows="2" name="title" id="title" placeholder="Add title"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-12">
-                    <textarea ng-model="content" class="form-control" rows="3" id="content" name="content" placeholder="Add content"></textarea>
+                    <textarea ng-model="postData.content" class="form-control" rows="3" id="content" name="content" placeholder="Add content"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-12">
-                    <textarea ng-model="subtitle" class="form-control" rows="3" id="subtitle" name="subtitle" placeholder="Add subtitle"></textarea>
+                    <textarea ng-model="postData.subtitle" class="form-control" rows="3" id="subtitle" name="subtitle" placeholder="Add subtitle"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-8">
-                    <textarea ng-model="useremail" class="form-control" rows="3" id="useremail" name="useremail" placeholder="User Email">{{user.email}}</textarea>
+                    <textarea ng-model="postData.useremail" class="form-control" rows="3" id="useremail" name="useremail" placeholder="User Email">{{user.email}}</textarea>
                 </div>
             </div>
             <div class="col-lg-12">

@@ -1,8 +1,7 @@
 angular.module('app').controller('CommentCtrl', ['$scope', '$http', '$resource', 'CommentService', function ($scope, $http, $resource, CommentService) {
-    console.log("Comment Ctrl");
 
     $scope.comments = CommentService.query();
-    $scope.commentData = {};
+    $scope.commentData = {'comment': '', 'poster' : $scope.id};
     $scope.newComment = function () {
         var comment = new CommentService($scope.commentData);
         comment.$save();

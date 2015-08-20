@@ -1,0 +1,54 @@
+<article ng-controller="PostCtrl">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview"">
+                    <a>
+                        <h2 class="post-title" data-toggle="tooltip" data-placement="top" title="Click To Close The Post">
+                            {{post.title}}
+                        </h2>
+
+                        <h3 class="post-subtitle">
+                            {{post.subtitle}}
+                        </h3>
+                    </a>
+
+                    <p>{{post.content}}</p>
+                    <div class="container" ng-controller="CommentCtrl">
+                        <div class="row">
+
+                            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                                <h4>Leave a Comment:</h4>
+                                <h4>{{post.id}}</h4>
+                                <form role="form" ng-submit="newComment()">
+                                    <div class="form-group">
+                                        <textarea ng-model="commentData.comment" class="form-control" rows="3"></textarea>
+                                        <textarea ng-model="commentData.poster" class="form-control" rows="1" disabled></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                </form>
+
+                                <div class="container">
+                                    <div class="row" ng-repeat="comment in comments">
+                                        <h1>Comment Content: {{comment.comment}}</h1>
+                                        <h1>Comment ID: {{comment.poster}}</h1>
+
+                                        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                                            <!-- Comment -->
+                                            <div class="media-body">
+                                                <h4 class="media-heading">
+                    </h4 >
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+            </div>
+        </div>
+                    <p class="post-meta">Posted by {{post.useremail}} on {{post.createdAt}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

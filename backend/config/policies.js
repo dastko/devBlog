@@ -46,7 +46,8 @@ module.exports.policies = {
   },
 
   PostController: {
-    retrievePosts: true
+    retrievePosts: true,
+        '*': ['passport']
   },
 
   CommentController: {

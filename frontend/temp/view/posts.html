@@ -43,7 +43,7 @@
                 <form role="form" ng-submit="newComment()">
                     <div class="form-group">
                         <textarea ng-model="commentData.comment" class="form-control" rows="3"></textarea>
-                        <textarea ng-model="commentData.poster" class="form-control" rows="3"></textarea>
+                        <textarea ng-model="commentData.poster" class="form-control" rows="3">{{id}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary pull-right">Submit</button>
                 </form>
@@ -75,21 +75,18 @@
 
 <!-- Comments Form -->
 
-<div class="container" ng-controller="CommentCtrl">
+<div class="container" ng-controller="PostCtrl">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div ng-repeat="post in posts">
                 <div class="post-preview">
-                    <a ng-click="showId(post)">
+                    <a ui-sref="post({id: '{{post.id}}'})">
                         <h2 class="post-title">
                             {{post.title}}
                         </h2>
                         <h3 class="post-subtitle">
                             {{post.subtitle}}
                         </h3>
-                        <h1 ng-repeat="post in post.comments">
-                            {{post.comment}}
-                        </h1>
                     </a>
                     <p class="post-meta">Posted by <a href="#">{{post.useremail}}</a> on {{post.createdAt}}</p>
                 </div>
