@@ -2,13 +2,12 @@ angular.module('app').controller('LoginCtrl', ['$scope', '$http', function ($sco
   console.log("Login Controller initial...")
   
   $scope.loginSubmit = function () {
-    $http.post('/api/auth/local', {
-      identifier: $scope.email,
+    $http.post('/api/login', {
+      email: $scope.email,
       password: $scope.password,
     })
-      .then(function onSuccess() {
-        console.log("What is wrong?!")
-        window.location = '#/addpost';
+      .then(function onSuccess(response) {
+        console.log(response)
       })
       .catch(function onError(err) {
         console.log(err);

@@ -2,12 +2,13 @@ angular.module('app').controller('PostCtrl', ['$scope', '$http', '$rootScope', '
 
 
     $scope.posts = PostService.query();
-    $scope.post = PostService.get({id: $scope.id});
     
     $scope.postData = {};
     $scope.newPost = function () {
         var post = new PostService($scope.postData);
         post.$save();
         $scope.posts.push(post);
-    }
-}])
+    },
+    
+	$scope.post = PostService.get({id: $scope.id});
+}])	

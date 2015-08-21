@@ -1,3 +1,17 @@
+<header class="intro-header" style="background-image: url({{ picture || '/img/post-bg.jpg' }})">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>devBlog</h1>
+                    <hr class="small">
+                    <span class="subheading">A Blog for Practice</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 <article ng-controller="PostCtrl">
     <div class="container">
         <div class="row">
@@ -20,26 +34,29 @@
 
                             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                                 <h4>Leave a Comment:</h4>
-                                <h4>{{post.id}}</h4>
+
                                 <form role="form" ng-submit="newComment()">
                                     <div class="form-group">
                                         <textarea ng-model="commentData.comment" class="form-control" rows="3"></textarea>
-                                        <textarea ng-model="commentData.poster" class="form-control" rows="1" disabled></textarea>
+
                                     </div>
                                     <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                    
+
                                 </form>
+                                </div>
 
-                                <div class="container">
-                                    <div class="row" ng-repeat="comment in comments">
-                                        <h1>Comment Content: {{comment.comment}}</h1>
-                                        <h1>Comment ID: {{comment.poster}}</h1>
+                            </div>       
+                              <div class="container">
+                                    <div class="row" ng-repeat="comment in post.comments">
+                                        <h1>Comment: {{comment.comment}}</h1>
 
-                                        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                                            <!-- Comment -->
-                                            <div class="media-body">
-                                                <h4 class="media-heading">
-                    </h4 >
-                </div>
+
+
+
+            
+
+            </div>
             </div>
         </div>
     </div>
